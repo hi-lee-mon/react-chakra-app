@@ -1,7 +1,9 @@
 import { FC, memo } from "react";
 import { Route, Switch } from "react-router-dom";
+// 以下ローカルモジュール
 import { Login } from "../components/pages/Login";
 import { Page404 } from "../components/pages/Page404";
+import { HeaderLayout } from "../components/templates/HeaderLayout";
 import { homeRoutes } from "./HomeRoutes";
 
 export const Router: FC = memo(() => {
@@ -10,21 +12,24 @@ export const Router: FC = memo(() => {
       <Route exact path="/">
         <Login />
       </Route>
-      <Route path="/home" render={({ match: {url} }) => (
-        <Switch>
-          {homeRoutes.map((route)=>(
-            <Route 
-              key={route.path}
-              exact={route.exact}
-              path={`${url}${route.path}`}
-            >
-              {route.children}
-            </Route>
-          ))}
-        </Switch>
-      )}/>
+      <Route
+        path="/home"
+        render={({ match: { url } }) => (
+          <Switch>
+            {homeRoutes.map((route) => (
+              <Route
+                key={route.path}
+                exact={route.exact}
+                path={`${url}${route.path}`}
+              >
+                <HeaderLayout>{route.children}</HeaderLayout>
+              </Route>
+            ))}
+          </Switch>
+        )}
+      />
       <Route path="*">
-        <Page404/>
+        <Page404 />
       </Route>
     </Switch>
   );

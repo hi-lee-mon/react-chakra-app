@@ -1,0 +1,33 @@
+import { Button } from "@chakra-ui/button";
+import { Drawer, DrawerBody, DrawerContent } from "@chakra-ui/modal";
+import { memo, FC } from "react";
+
+type Props = {
+  onClose: () => void;
+  isOpen: boolean;
+  onClickHome: () => void;
+  onClickUserManagement: () => void;
+  onClickSetting: () => void;
+};
+
+export const MenuDrawer: FC<Props> = memo(
+  ({ onClose, isOpen, onClickHome, onClickSetting, onClickUserManagement }) => {
+    return (
+      <Drawer placement="left" size="xs" onClose={onClose} isOpen={isOpen}>
+        <DrawerContent>
+          <DrawerBody p={0} bg="gray.100">
+            <Button onClick={onClickHome} w="100%">
+              TOP
+            </Button>
+            <Button onClick={onClickUserManagement} w="100%">
+              ユーザ一覧
+            </Button>
+            <Button onClick={onClickSetting} w="100%">
+              設定
+            </Button>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    );
+  }
+);

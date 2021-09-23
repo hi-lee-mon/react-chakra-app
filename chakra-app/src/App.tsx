@@ -7,7 +7,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <BrowserRouter>
-        <Router/>
+        <Router />
       </BrowserRouter>
     </ChakraProvider>
   );
