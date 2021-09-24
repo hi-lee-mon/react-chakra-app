@@ -13,8 +13,8 @@ export const useAuth = () => {
       setLoading(true);
       axios
         .get<User>(`https://jsonplaceholder.typicode.com/users/${id}`)
-        .then((result) => {
-          if (result.data) {
+        .then((res) => {
+          if (res.data) {
             showMessage({ title: "ログインしました", status: "success" });
             history.push("/home");
           } else {
