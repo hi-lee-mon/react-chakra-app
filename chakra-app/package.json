@@ -119,6 +119,7 @@
     "websocket-driver": "0.7.5",
     "word-wrap": "1.2.5",
     "ws": "8.21.3",
-    "yaml": "2.9.1"
+    "yaml": "2.9.1",
+    "webpack": "5.111.1"
   }
 }
